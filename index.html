@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      div {
+      }
+      h1 {
+        text-align: center;
+        padding: 20px 0;
+      }
+      .editor {
+        width: 90vw;
+        margin: auto;
+        border: 0.1px solid blue;
+        margin-bottom: 10px;
+      }
+      button{
+        font-size: xx-large;
+        padding:0;
+      }
+      .dailyWork {
+        line-height: 25px;
+        width: 80vw;
+        margin: auto;
+      }
+      .dailyWork > .homeWork {
+        display: flex;
+        padding: 5px;
+        border: 1pt solid red;
+      }
+      .dailyWork > .homeWork:hover {
+        background-color: lightgray;
+      }
+      .dailyWork > .homeWork > .image {
+        min-width: 50px;
+        height: 50px;
+        margin-right: 10px;
+        background-image: url(/homework-icon.png);
+        background-size: contain;
+        background-position: center;
+        border: 1px solid blue;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Module 3 <br />(JavaScript Projects And Assignments)</h1>
+    <div class="editor">
+      <button>+</button>
+    </div>
+    <ol class="dailyWork">
+      <li class="homeWork">
+        <div class="image"></div>
+        <p>
+          Assignment: "Day 1 - HomeWork" Priyanshu Choudhary posted a new
+          assignment: Day 1 - HomeWork Created Feb 14
+        </p>
+      </li>
+    </ol>
+  </body>
+</html>
