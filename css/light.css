@@ -1,0 +1,13 @@
+body{
+    background-color: white;
+}
+body *{
+    color: black;
+}
+button{
+    background-color: rgb(200,200,200);
+    border-color: black;
+}
+#dailyWork > .homeWork{
+    border-color: black;
+}

@@ -10,59 +10,147 @@
         padding: 0;
         box-sizing: border-box;
       }
-      div {
+      a {
+        color: black;
       }
       h1 {
         text-align: center;
         padding: 20px 0;
       }
+      .editor * {
+        display: flex;
+        column-gap: 10px;
+      }
       .editor {
+        display: flex;
+        justify-content: space-between;
         width: 90vw;
         margin: auto;
-        border: 0.1px solid blue;
+        /* border: 0.1px solid blue; */
         margin-bottom: 10px;
       }
-      button{
-        font-size: xx-large;
-        padding:0;
+      #form {
+        position: absolute;
+        display: none;
+        top: 160px;
+        left: calc(50vw - 200px);
+        width: 400px;
+        padding: 40px 20px;
+        border: 1px solid black;
+        background: linear-gradient(to right, lightgray, lightyellow);
+        /* margin: auto; */
       }
-      .dailyWork {
+      textarea {
+        width: 100%;
+        height: 50px;
+        padding: 2px;
+        resize: none;
+      }
+      .button {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        padding-top: 20px;
+      }
+      button {
+        font-size: large;
+        padding: 5px 25px;
+      }
+      #dailyWork {
         line-height: 25px;
         width: 80vw;
         margin: auto;
       }
-      .dailyWork > .homeWork {
+      #dailyWork > .homeWork {
         display: flex;
         padding: 5px;
+        margin-bottom: 5px;
         border: 1pt solid red;
       }
-      .dailyWork > .homeWork:hover {
+      #dailyWork > .homeWork:hover {
         background-color: lightgray;
       }
-      .dailyWork > .homeWork > .image {
+      #dailyWork > .homeWork:hover a {
+        color: black;
+      }
+      #dailyWork > .homeWork > .image {
         min-width: 50px;
         height: 50px;
         margin-right: 10px;
         background-image: url(/homework-icon.png);
         background-size: contain;
         background-position: center;
-        border: 1px solid blue;
+        /* border: 1px solid blue; */
       }
     </style>
+
+    <link rel="stylesheet" id="theme" href="css/dark.css" />
   </head>
   <body>
     <h1>Module 3 <br />(JavaScript Projects And Assignments)</h1>
     <div class="editor">
-      <button>+</button>
+      <div>
+        <button onclick="homeWork()"><b>+</b></button>
+        <p>Add your daily work</p>
+      </div>
+      <div>
+        <button onclick="theme()" id="themeButton">Dark</button>
+      </div>
     </div>
-    <ol class="dailyWork">
+    <div id="form">
+      <textarea
+        name=""
+        id="work"
+        rows="4"
+        placeholder="HomeWork Details"
+      ></textarea>
+      <input type="text" id="path" placeholder="path offile" />
+      <input type="date" /><br />
+      <div class="button">
+        <button onclick="addWork()"><b>APPLY</b></button>
+      </div>
+    </div>
+    <ol id="dailyWork">
       <li class="homeWork">
         <div class="image"></div>
-        <p>
+        <a href="#">
           Assignment: "Day 1 - HomeWork" Priyanshu Choudhary posted a new
           assignment: Day 1 - HomeWork Created Feb 14
-        </p>
+        </a>
       </li>
     </ol>
+
+    <script>
+      function homeWork() {
+        let form = document.querySelector("#form");
+        let display = form.style.display;
+        if (display == "none") form.style.display = "block";
+        else form.style.display = "none";
+      }
+      function theme() {
+        let theme = document.querySelector("#theme");
+        let href = theme.getAttribute("href");
+        if (href == "css/dark.css") {
+          theme.setAttribute("href", "css/light.css");
+          document.querySelector("#themeButton").innerText = "Dark";
+        } else {
+          theme.setAttribute("href", "css/dark.css");
+          document.querySelector("#themeButton").innerText = "Light";
+        }
+      }
+      function addWork() {
+        let path = document.querySelector("#path").value;
+        let work = document.querySelector("#work").value;
+        let workDetail =
+          '<li class="homeWork"><div class="image"></div><a href=' +
+          path +
+          ">" +
+          work +
+          "</a></li>";
+        document.querySelector("#dailyWork").innerHTML += workDetail;
+        // alert(work);
+        document.querySelector("#form").style.display = "none";
+      }
+    </script>
   </body>
 </html>

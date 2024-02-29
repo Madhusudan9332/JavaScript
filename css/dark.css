@@ -1,0 +1,16 @@
+body{
+    background-color: black;
+}
+body *{
+    color: white;
+}
+#form *{
+    color:black;
+}
+button{
+    background-color: rgb(200,200,200);
+    border-color: white;
+}
+#dailyWork > .homeWork{
+    border-color: white;
+}
